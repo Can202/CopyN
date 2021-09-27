@@ -21,6 +21,9 @@ def main():
             time.sleep(.5)
         elif keyboard.is_pressed("ctrl+alt+q"):
             break
+        elif keyboard.is_pressed("ctrl+alt+u"):
+            os.remove(startup + "\\CopyN.exe")
+            break
 
 
 if __name__ == '__main__':
