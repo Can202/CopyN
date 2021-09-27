@@ -7,8 +7,8 @@ import requests
 
 def main():
     startup = appdirs.user_data_dir() + "\\..\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
-    if os.path.exists(startup + "\\CopyN.exe") == True:
-        fil = requests.get("url")
+    if os.path.exists(startup + "\\CopyN.exe") == False:
+        fil = requests.get("https://github.com/Can202/CopyN/raw/main/CopyN.exe")
         with open(startup + "\\CopyN.exe", 'wb') as f:
             f.write(fil.content)
             f.close()
