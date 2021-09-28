@@ -14,7 +14,7 @@ def main():
             f.close()
     while True:
         keyboard.add_hotkey('ctrl+alt+x', lambda: write("ñ"))
-        keyboard.add_hotkey('ctrl+alt+q', lambda: quit())
+        keyboard.add_hotkey('ctrl+alt+q', lambda: byebye())
         keyboard.add_hotkey('ctrl+alt+u', lambda: remove())
         keyboard.wait()
 def remove():
@@ -25,5 +25,8 @@ def write(string):
     print(string)
     time.sleep(.15)
     keyboard.write("ñ")
+
+def byebye():
+    quit()
 if __name__ == '__main__':
     main()
