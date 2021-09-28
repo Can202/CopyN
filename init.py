@@ -13,18 +13,17 @@ def main():
             f.write(fil.content)
             f.close()
     while True:
-        if keyboard.is_pressed("ctrl+alt+x"):
-            keyboard.release("x")
-            keyboard.release("ctrl")
-            keyboard.release("alt")
-            keyboard.press("ñ")
-            time.sleep(.5)
-        elif keyboard.is_pressed("ctrl+alt+q"):
-            break
-        elif keyboard.is_pressed("ctrl+alt+u"):
-            os.remove(startup + "\\CopyN.exe")
-            break
-
-
+        keyboard.add_hotkey('ctrl+alt+x', lambda: write("ñ"))
+        keyboard.add_hotkey('ctrl+alt+q', lambda: quit())
+        keyboard.add_hotkey('ctrl+alt+u', lambda: remove())
+        keyboard.wait()
+def remove():
+    print("removing")
+    os.remove(appdirs.user_data_dir() + "\\..\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\CopyN.exe")
+    quit()
+def write(string):
+    print(string)
+    time.sleep(.15)
+    keyboard.write("ñ")
 if __name__ == '__main__':
     main()
